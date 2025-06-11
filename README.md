@@ -1,1 +1,1 @@
-# QNAP-proper-ntp
+# QNAP-proper-ntpd
