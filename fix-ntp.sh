@@ -7,8 +7,10 @@ set -euo pipefail
 
 # Configuration
 readonly TMPCRONTAB="/tmp/crontabtemp.$$"
-readonly NTP_SERVER="192.168.0.9"
-readonly NTP_CONF_SRC="/share/CACHEDEV1_DATA/Tech/QNAP/TS-951N/autostart/ntp.conf"
+# Replace with your NTP server, it can be a public one e.g. 0.pool.ntp.org
+readonly NTP_SERVER="192.168.0.9" 
+# Replace with the full path where you will store your ntp.conf file
+readonly NTP_CONF_SRC="/share/YOURCUSTOMPATH/ntp.conf"
 readonly NTP_CONF_DEST="/etc/config/ntp.conf"
 
 # Trap to ensure cleanup on exit or interrupt
