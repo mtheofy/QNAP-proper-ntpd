@@ -14,7 +14,7 @@ QNAP's native time synchronization implementation is notoriously problematic:
 - Time sync is often configured redundantly in both cron jobs and services.
 - Hardware clock sync behavior is chaotic, leading to inconsistent system times, especially after reboots.
 
-This script **removes the mockery** from QNAP’s crontab and re-establishes a clean, reliable time sync routine based on a real `ntpd` service using your own `ntp.conf` file.
+This script **disables the mockery** from QNAP’s crontab and re-establishes a clean, reliable time sync routine based on an `ntpd` service using your own `ntp.conf` file.
 
 ---
 
