@@ -81,6 +81,11 @@ restart_crond() {
 }
 
 main() {
+    if [[ $EUID -ne 0 ]]; then
+        log "Error: This script must be run as root. Please rerun as root (e.g., using sudo)." >&2
+        exit 1
+    fi
+
     log "----- Starting QNAP NTP Setup Script -----"
     check_prerequisites
     safely_stop_processes
