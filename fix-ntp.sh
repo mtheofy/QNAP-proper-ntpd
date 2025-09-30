@@ -81,6 +81,11 @@ restart_crond() {
 }
 
 main() {
+    if ! id -nG 2>/dev/null | tr ' ' '\n' | grep -qx "administrators"; then
+        log "Error: This script requires membership in the 'administrators' group. Please rerun using an account in that group." >&2
+        exit 1
+    fi
+
     log "----- Starting QNAP NTP Setup Script -----"
     check_prerequisites
     safely_stop_processes
