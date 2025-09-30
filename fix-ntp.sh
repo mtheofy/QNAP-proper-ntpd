@@ -71,7 +71,7 @@ sync_system_and_hwclock() {
 setup_ntpd() {
     log "Configuring and starting ntpd..."
     cp "$NTP_CONF_SRC" "$NTP_CONF_DEST"
-    /sbin/daemon_mgr ntpd start "ntpd -c $NTP_CONF_DEST"
+    /sbin/daemon_mgr ntpd start "/usr/sbin/ntpd -c $NTP_CONF_DEST"
 }
 
 restart_crond() {
