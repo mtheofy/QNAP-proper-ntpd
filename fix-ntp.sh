@@ -6,7 +6,8 @@ set -euo pipefail
 #----------------------------------------
 
 # Configuration
-readonly TMPCRONTAB="/tmp/crontabtemp.$$"
+TMPCRONTAB="$(mktemp -t qnap-crontab.XXXXXX)"
+readonly TMPCRONTAB
 # Replace with your NTP server, it can be a public one e.g. 0.pool.ntp.org
 readonly NTP_SERVER="192.168.0.9" 
 # Replace with the full path where you will store your ntp.conf file
@@ -15,7 +16,7 @@ readonly NTP_CONF_DEST="/etc/config/ntp.conf"
 
 # Trap to ensure cleanup on exit or interrupt
 cleanup() {
-    rm -f "$TMPCRONTAB"
+    [[ -n $TMPCRONTAB ]] && rm -f "$TMPCRONTAB"
 }
 trap cleanup EXIT
 
